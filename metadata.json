@@ -1,0 +1,5 @@
+{
+  "name": "ClinicalRAG",
+  "description": "A multimodal medical diagnostic assistant powered by Gemini 3 Pro, analyzing reports, images, and video explanations for unified healthcare insights.",
+  "requestFramePermissions": []
+}

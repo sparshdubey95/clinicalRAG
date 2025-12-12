@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClinicalRAG - AI Diagnostic Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              primary: {
+                950: '#000000', // Pure Black (OLED)
+                900: '#111111', // Almost Black (Card Base)
+                800: '#1C1C1C', // Elevated Card
+                700: '#2A2A2A', // Borders
+              },
+              accent: {
+                gold: '#FFD700', // POP Yellow
+                goldDim: '#BFA200',
+                orange: '#FF8C00', // Warning
+                blue: '#2563EB', // User Message (Brighter)
+                green: '#10B981', // Success
+                red: '#EF4444', // Danger
+              }
+            },
+            boxShadow: {
+              'glow': '0 0 15px rgba(255, 215, 0, 0.3)',
+              'glow-sm': '0 0 8px rgba(255, 215, 0, 0.2)',
+              'card': '0 4px 20px rgba(0, 0, 0, 0.2)',
+              'float': '0 10px 30px rgba(0, 0, 0, 0.5)',
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'slide-up': 'slideUp 0.3s ease-out forwards',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              slideUp: {
+                '0%': { transform: 'translateY(15px)', opacity: 0 },
+                '100%': { transform: 'translateY(0)', opacity: 1 },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-5px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8f9fa;
+        --text-primary: #111827;
+        --text-secondary: #4b5563;
+        --border-color: #e5e7eb;
+      }
+      .dark {
+        --bg-primary: #000000;
+        --bg-secondary: #0A0A0A;
+        --text-primary: #ffffff;
+        --text-secondary: #a1a1aa;
+        --border-color: #27272a;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #3f3f46; 
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #52525b; 
+      }
+      
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+
+      /* Logo Glow Effect */
+      .logo-glow {
+        filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.5));
+      }
+      .dark .logo-glow {
+        filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
+    "react/": "https://esm.sh/react@^19.2.1/",
+    "react": "https://esm.sh/react@^19.2.1",
+    "lucide-react": "https://esm.sh/lucide-react@^0.560.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="antialiased selection:bg-accent-gold selection:text-black">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
